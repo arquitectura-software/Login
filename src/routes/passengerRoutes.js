@@ -1,7 +1,7 @@
 const Passenger = require('../models/passenger');
 module.exports = function(app){
     app.get('/passengers',(req,res)=>{
-        passenger.getpassengers((err, data)=>{
+        Passenger.getpassengers((err, data)=>{
             res.status(200).json(data);
         });
     });
@@ -12,10 +12,10 @@ module.exports = function(app){
             birthdate: req.body.birthdate,
             email: req.body.email,
             phone: req.body.phone,
-            created_at: null,
-            updated_at:null
+            created_at: new Date(),
+            updated_at:new Date()
         };
-        passenger.insertpassenger (passengerData,(err,data)=>{
+        Passenger.insertpassenger (passengerData,(err,data)=>{
             if (data && data.insertId){
                 res.json({
                     success: true,
@@ -37,11 +37,11 @@ module.exports = function(app){
             birthdate: req.body.birthdate,
             email: req.body.email,
             phone: req.body.phone,
-            created_at: null,
-            updated_at:null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         console.log(passengerData)
-        passenger.updatepassenger(passengerData,(err,data)=>{
+        Passenger.updatepassenger(passengerData,(err,data)=>{
             if (data && data.message){
                 res.json(data)
             }else{
@@ -54,7 +54,7 @@ module.exports = function(app){
     });
 
     app.delete('/passengers/:id', (req, res) => {
-        passenger.deletepassenger(parseInt(req.params.id), (err, data) => {
+        Passenger.deletepassenger(parseInt(req.params.id), (err, data) => {
             if (data && data.message == 'deleted' || data.message == 'not exists') {
                 res.json({
                     success: true,

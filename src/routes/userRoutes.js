@@ -10,8 +10,8 @@ module.exports = function (app) {
             id: null,
             names: req.body.names,
             surnames: req.body.surnames,
-            created_at: null,
-            updated_at: null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         console.log(userData);
         User.insertUser(userData, (err, data) => {
@@ -34,8 +34,8 @@ module.exports = function (app) {
             id: parseInt(req.params.id),
             names: req.body.names,
             surnames: req.body.surnames,
-            created_at: null,
-            updated_at: null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         
         User.updateUser(userData, (err, data) => {

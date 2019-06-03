@@ -10,8 +10,8 @@ module.exports = function(app){
             id: null,
             id_user: req.body.id_user,
             dependence: req.body.dependence,
-            created_at: null,
-            updated_at:null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         crew.insertCrew (crewData,(err,data)=>{
             if (data && data.insertId){
@@ -33,8 +33,8 @@ module.exports = function(app){
             id: parseInt(req.params.id),
             id_user: req.body.id_user,
             dependence: req.body.dependence,
-            created_at: null,
-            updated_at:null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         console.log(crewData)
         crew.updateCrew(crewData,(err,data)=>{

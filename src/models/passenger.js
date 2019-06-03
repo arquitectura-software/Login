@@ -1,25 +1,28 @@
 const mysql = require("mysql");
 
 connection = mysql.createConnection({
-  host            : process.env.DATABASE_HOST,
-  port            : process.env.MYSQL_PORT,
-  user            : process.env.MYSQL_USER,
-  password        : process.env.MYSQL_PASSWORD,
-  database        : process.env.MYSQL_DATABASE
+    host: process.env.DATABASE_HOST,
+    port: process.env.MYSQL_PORT,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE
 });
 
 let passengerModel = {};
-passengerModel.getpassengers = callback => {
+passengerModel.getpassengers = (callback) => {
   if (connection) {
-    connection.query("SELECT * FROM passengers ORDER BY id", (err, rows) => {
-      if (err) {
-        throw err;
-      } else {
-        callback(null, rows);
+    connection.query(
+      'SELECT * FROM passengers ORDER BY id',
+      (err, rows) => {
+        if (err) {
+          throw err;
+        } else {
+          callback(null, rows);
+        }
       }
-    });
+    )
   }
-};
+}
 
 passengerModel.insertPassengers = (passengerData, callback) => {
   if (connection) {
