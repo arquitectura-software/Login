@@ -27,6 +27,7 @@ app.use(morgan('dev'));
 require('./routes/userRoutes')(app);
 require('./routes/passengerRoutes')(app);
 require('./routes/crewRoutes')(app);
+require('./routes/ldapRoutes')(app);
 
 
 
