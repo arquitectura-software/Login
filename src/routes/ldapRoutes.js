@@ -74,7 +74,7 @@ module.exports = function(app){
 
     app.post("/ad", (req, res) => {
         var client = ldap.createClient({
-              url: req.body.serverUrl
+            url: req.body.serverUrl
         });
         
         client.bind(req.body.username + '@' + req.body.domain, req.body.password, function(err) {
@@ -89,7 +89,4 @@ module.exports = function(app){
         
     }); // app.post("/ad...")
 
-    
-
 }
-
