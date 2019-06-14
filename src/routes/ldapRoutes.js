@@ -1,7 +1,34 @@
 const ldap = require('ldapjs')
 
 module.exports = function(app){
-    
+        
+        // Conection with LDAP witout proofs
+        app.post('/auth',(req,res)=>{
+            //check your connection
+            ldapObj.open(function(err) {
+            if (err) {
+                throw new Error('Connection problem occured!');
+            }
+            console.log("Connected to ldap");
+
+        });
+
+        //Search
+        search_options = {
+            base: '',
+            scope: '',
+            filter: '',
+            attrs: ''
+        }
+        ldapObj.search(search_options, function(err, data){
+            if (err) {
+                throw new Error('Search filed');
+            }else {
+                console.log("Search result:" + JSON.stringify(data))
+            }
+        });
+    });
+
     app.post('/ldap', (req, res)=>{
         var result = "";    // To send back to the client
 	
