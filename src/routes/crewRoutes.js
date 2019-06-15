@@ -1,4 +1,5 @@
 const crew = require('../models/crew');
+
 module.exports = function(app){
     app.get('/crews',(req,res)=>{
         crew.getcrew((err, data)=>{

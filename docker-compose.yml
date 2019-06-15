@@ -1,7 +1,7 @@
 version: '2.1'
 
 services:
-  login-db:
+  db:
     build: ./db
     environment:
       MYSQL_DATABASE: Ident
@@ -9,7 +9,7 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
       DATABASE_HOST: db
-  login-ms:
+  login:
     build: .
     environment:
       NODE_ENV: production
@@ -19,7 +19,7 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
     ports:
-      - "3002:3000"
+      - "3000:3000"
     depends_on:
       - db
     restart: on-failure
