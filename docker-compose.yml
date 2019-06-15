@@ -19,7 +19,7 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
     ports:
-      - "3000:3000"
+      - "3002:3000"
     depends_on:
       - db
     restart: on-failure
