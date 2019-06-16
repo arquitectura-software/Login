@@ -1,4 +1,5 @@
 const ldap = require('ldapjs');
+const jwt = require('jsonwebtoken');
 
 module.exports = function(app){
 
@@ -6,7 +7,11 @@ module.exports = function(app){
         
         const username = 'cn='+req.body.username+',ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co';
         const password = req.body.password;
-        
+        // generar token
+        const body = JSON.stringify(req.body)
+        console.log(body)
+        const token = jwt.sign({body},'secret_key');
+        console.log(token)
         var client = ldap.createClient({
             url: 'ldap://192.168.99.103:389',
             version: 3
@@ -17,7 +22,6 @@ module.exports = function(app){
             scope: 'sub',
             attributes: ['objectGUID']
         };
-        console.log("hallo before to search!")
         client.bind(username, password , function (err) {        
             if(err){
                 res.status(200).json({
@@ -28,7 +32,8 @@ module.exports = function(app){
             } else {
                 res.status(200).json({
                     success: true,
-                    data: 'Usuario autenticado'
+                    data: 'Usuario autenticado',
+                    token: token
                 })
                 client.search('ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
                     search.on('searchEntry', function(entry) {
