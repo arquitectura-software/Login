@@ -9,9 +9,6 @@ const morgan = require('morgan')
 const app = express();
 
 
-//const routes = require('./routes/index')
-
-
 // Settings 
 app.set('port',process.env.PORT || 3000);
 //app.set('views', path.join(__dirname,'views'));

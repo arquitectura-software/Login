@@ -1,26 +1,15 @@
 const ldap = require('ldapjs');
 
-//var ldap = require('ldap-client');
-//var ldapObj = new ldap({ uri: 'ldap://http://192.168.99.103:8085/', version: 3});
-/*const Promise = require('bluebird')
-const ldapOptions = {                                                                                                                                                                        
-    url: 'ldap://192.168.99.103:389',
-    connectTimeout: 3000,
-    reconnect: true
-}*/
-
-
 module.exports = function(app){
 
-    app.get("/ad", (req, res) => {
-        var username = 'admin';
-        //var password = 'admin';
-        var password = 'loqueseamipex';
-        //ldap.Attribute.settings.guid_format = ldap.GUID_FORMAT_B;
+    app.post("/auth", (req, res) => {
+        
+        const username = 'cn='+req.body.username+',ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co';
+        const password = req.body.password;
+        
         var client = ldap.createClient({
-            //url: 'ldap://192.168.99.103:8085/cn=admin,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co'
-            url: 'ldap://192.168.99.103:389'
-            //url: 'ldap://192.168.99.103:389/cn='+username+', ou=users, ou=compton, dc=batman, dc=com'
+            url: 'ldap://192.168.99.103:389',
+            version: 3
         });
           
         var opts = {
@@ -29,17 +18,20 @@ module.exports = function(app){
             attributes: ['objectGUID']
         };
         console.log("hallo before to search!")
-        //client.bind('cn=admin,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', 'admin', function (err) {
-        //client.bind('cn=hrumana@unal.edu.co,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', '123', function (err) {    
         client.bind(username, password , function (err) {        
             if(err){
-                console.log(err.message);
+                
+                res.status(404).json({
+                    success: false,
+                    data: 'Usuario no autenticado'
+                })
                 client.unbind(function(err) {if(err){console.log(err.message);} else{console.log('client disconnected');}});
             } else {
-                console.log("hallo intra bind")
-                //client.search('cn=hrumana@unal.edu.co,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
+                res.status(200).json({
+                    success: true,
+                    data: 'Usuario autenticado'
+                })
                 client.search('ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
-                    console.log('Searching.....');
                     search.on('searchEntry', function(entry) {
                         if(entry.object){
                             console.log('entry: %j ' + JSON.stringify(entry.object));
