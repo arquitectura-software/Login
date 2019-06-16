@@ -2,11 +2,15 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-const path = require('path');
+//const path = require('path');
+
 
 // ejecutar express y recibir un objeto
 const app = express();
+
+
 //const routes = require('./routes/index')
+
 
 // Settings 
 app.set('port',process.env.PORT || 3000);
@@ -28,7 +32,7 @@ require('./routes/userRoutes')(app);
 require('./routes/passengerRoutes')(app);
 require('./routes/crewRoutes')(app);
 require('./routes/ldapRoutes')(app);
-
+//require('./Serverldap')(app);
 
 
 
@@ -36,3 +40,4 @@ require('./routes/ldapRoutes')(app);
 app.listen(app.get('port'), () =>{
     console.log('Server on port',app.get('port'))
 })
+
