@@ -12,33 +12,15 @@ const ldapOptions = {
 
 module.exports = function(app){
 
-    // Authenticate
-    /*app.post("/auth", (req, res) => {
-        return new Promise((resolve, reject)=>{
-            const ldapClient = ldap.createClient(ldapOptions)
-            ldapClient.bind(
-                //'cn='+req.userUid + ','+"ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co",
-                //req.password,
-                "cn=admin,dc=arqsoft,dc=unal,dc=edu,dc=co",
-                "admin",
-                (err,res)=>{
-                    if(err){
-                        return reject(err)
-                    }
-                    ldapClient.unbind()
-                    return resolve(res)
-                }
-            )
-        })
-    }); */
     app.get("/ad", (req, res) => {
         var username = 'admin';
-        var password = 'admin';
+        //var password = 'admin';
+        var password = 'loqueseamipex';
         //ldap.Attribute.settings.guid_format = ldap.GUID_FORMAT_B;
         var client = ldap.createClient({
             //url: 'ldap://192.168.99.103:8085/cn=admin,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co'
-            //url: 'ldap://192.168.99.103:389'
-            url: 'ldap://192.168.99.103:389/cn='+username+', ou=users, ou=compton, dc=batman, dc=com'
+            url: 'ldap://192.168.99.103:389'
+            //url: 'ldap://192.168.99.103:389/cn='+username+', ou=users, ou=compton, dc=batman, dc=com'
         });
           
         var opts = {
@@ -50,22 +32,26 @@ module.exports = function(app){
         //client.bind('cn=admin,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', 'admin', function (err) {
         //client.bind('cn=hrumana@unal.edu.co,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', '123', function (err) {    
         client.bind(username, password , function (err) {        
-            console.log("hallo intra bind")
-            //client.search('cn=hrumana@unal.edu.co,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
-            client.search('ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
-                console.log('Searching.....');
-                search.on('searchEntry', function(entry) {
-                    if(entry.object){
-                        console.log('entry: %j ' + JSON.stringify(entry.object));
-                    }else{
-                        console.log("not entry object")
-                    }
+            if(err){
+                console.log(err.message);
+                client.unbind(function(err) {if(err){console.log(err.message);} else{console.log('client disconnected');}});
+            } else {
+                console.log("hallo intra bind")
+                //client.search('cn=hrumana@unal.edu.co,ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
+                client.search('ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co', opts, function (err, search) {
+                    console.log('Searching.....');
+                    search.on('searchEntry', function(entry) {
+                        if(entry.object){
+                            console.log('entry: %j ' + JSON.stringify(entry.object));
+                        }
+                    });
+                    search.on('error', function(error) {
+                        console.error('error: ' + error.message);
+                    });
+                    client.unbind(function(error) {if(error){console.log(error.message);} else{console.log('client disconnected');}});
                 });
-                search.on('error', function(error) {
-                    console.error('error: ' + error.message);
-                });
-                client.unbind(function(error) {if(error){console.log(error.message);} else{console.log('client disconnected');}});
-            });
+            }
+            
         });
         
     }); 
