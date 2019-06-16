@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS passengers (
     id_user INT(10) unsigned NOT NULL,
     birthdate DATE NOT NULL,
     email VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
-    phone INT(16) unsigned NOT NULL,
+    phone VARCHAR(16) COLLATE utf8_unicode_ci NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY(id),
@@ -68,11 +68,11 @@ VALUES
 
     INSERT INTO passengers (id_user, birthdate, email, phone)
 VALUES
-    (1, "1990-12-15 12:00:00", "darturovela@gmail.com" ,3158302787),
-    (2, "1987-03-01 12:00:00", "lsofiavela@gmail.com" ,3143752255),
-    (3, "1995-02-21 12:00:00","sacamiloto@gmail.com" ,3102579249),
-    (4, "1977-08-11 12:00:00","saraseca@gmail.com" ,3138611109),
-    (5, "2014-03-01 12:00:00","saravoa@gmail.com" ,3013778966);
+    (1, "1990-12-15 12:00:00", "darturovela@gmail.com", "3158302787"),
+    (2, "1987-03-01 12:00:00", "lsofiavela@gmail.com", "3143752255"),
+    (3, "1995-02-21 12:00:00","sacamiloto@gmail.com", "3102579249"),
+    (4, "1977-08-11 12:00:00","saraseca@gmail.com", "3138611109"),
+    (5, "2014-03-01 12:00:00","saravoa@gmail.com", "3013778966");
 
 
 INSERT INTO crew (id_user, dependence)
