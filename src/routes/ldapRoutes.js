@@ -20,8 +20,7 @@ module.exports = function(app){
         console.log("hallo before to search!")
         client.bind(username, password , function (err) {        
             if(err){
-                
-                res.status(404).json({
+                res.status(200).json({
                     success: false,
                     data: 'Usuario no autenticado'
                 })
