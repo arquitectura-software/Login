@@ -17,7 +17,7 @@ module.exports = function(app){
         };
         Passenger.insertpassenger (passengerData,(err,data)=>{
             if (data && data.insertId){
-                res.json({
+                res.status(200).json({
                     success: true,
                     data: data
                 })

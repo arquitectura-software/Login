@@ -10,13 +10,15 @@ module.exports = function (app) {
             id: null,
             names: req.body.names,
             surnames: req.body.surnames,
+            username: req.body.username,
+            passw: req.body.passw,
             created_at: new Date(),
             updated_at: new Date()
         };
         console.log(userData);
         User.insertUser(userData, (err, data) => {
             if (data && data.insertId) {
-                res.json({
+                res.status(200).json({
                     success: true,
                     data: data
                 })
@@ -34,6 +36,8 @@ module.exports = function (app) {
             id: parseInt(req.params.id),
             names: req.body.names,
             surnames: req.body.surnames,
+            username: req.body.username,
+            passw: req.body.passw,
             created_at: new Date(),
             updated_at: new Date()
         };

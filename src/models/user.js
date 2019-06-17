@@ -30,9 +30,10 @@ UserModel.insertUser = (userData, callback) => {
             'INSERT INTO users SET ?', userData,
             (err, result) => {
                 if (err) {
+                    console.log("Error!")
                     throw err
                 } else {
-                    callback(null, {
+                    callback("success", {
                         'insertId': result.insertId
                     })
                 }
@@ -47,6 +48,8 @@ UserModel.updateUser = (userData, callback) => {
         UPDATE users SET 
         names = ${connection.escape(userData.names)},
         surnames= ${connection.escape(userData.surnames)}
+        username= ${connection.escape(userData.username)}
+        passw= ${connection.escape(userData.passw)}
         WHERE id = ${connection.escape(userData.id)}`;
 
         connection.query(sql, (err, result) => {
