@@ -55,16 +55,16 @@ FLUSH PRIVILEGES;
 
 INSERT INTO users (names, surnames, username, passw)
 VALUES
-    ("David Arturo", "Mendez Velandia", "darturovela" ,"123456"),
-    ("Laura Sofia", "Mendez Velandia", "lsofiavela" ,"123456"),
-    ("Samuel Camilo", "Torres Vesga", "sacamiloto" ,"123456"),
-    ("Saray", "Fonseca", "saraseca" ,"123456"),
-    ("Sara Sofia", "Novoa Tellez", "saravoa" ,"123456"),
-    ("Mickey", "Dysney Marvel", "mickney" ,"123456"),
-    ("Daniela Maria", "Ruiz Zamora", "damaruiz" ,"123456"),
-    ("Luisa Fernanda", "Rodriguez", "luiferro" ,"123456"),
-    ("Andres Felipe", "Ramirez Alfonso", "anframirezal" ,"123456"),
-    ("Ximena Penelope", "Fonseca Asencio", "ximepenefo" ,"123456");
+    ("David Arturo", "Mendez Velandia", "darturovela" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Laura Sofia", "Mendez Velandia", "lsofiavela" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Samuel Camilo", "Torres Vesga", "sacamiloto" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Saray", "Fonseca", "saraseca" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Sara Sofia", "Novoa Tellez", "saravoa" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Mickey", "Dysney Marvel", "mickney" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Daniela Maria", "Ruiz Zamora", "damaruiz" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Luisa Fernanda", "Rodriguez", "luiferro" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Andres Felipe", "Ramirez Alfonso", "anframirezal" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Ximena Penelope", "Fonseca Asencio", "ximepenefo" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6");
 
     INSERT INTO passengers (id_user, birthdate, email, phone)
 VALUES
