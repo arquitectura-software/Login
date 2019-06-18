@@ -13,7 +13,8 @@ module.exports = function(app){
         const token = jwt.sign({body},'secret_key');
         console.log(token)
         var client = ldap.createClient({
-            url: 'ldap://192.168.99.103:389',
+            //url: 'ldap://192.168.99.103:389',
+            url: 'ldap://3.219.172.198:389',
             version: 3
         });
           
