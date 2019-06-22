@@ -8,8 +8,8 @@ module.exports = function (app) {
     app.post('/users', (req, res) => {
         const userData = {
             id: null,
-            names: req.body.names,
-            surnames: req.body.surnames,
+            name: req.body.name,
+            surname: req.body.surname,
             email: req.body.email,
             passw: req.body.passw,
             created_at: new Date(),
@@ -34,8 +34,8 @@ module.exports = function (app) {
     app.put('/users/:id', (req, res) => {
         const userData = {
             id: parseInt(req.params.id),
-            names: req.body.names,
-            surnames: req.body.surnames,
+            name: req.body.name,
+            surname: req.body.surname,
             email: req.body.email,
             passw: req.body.passw,
             created_at: new Date(),

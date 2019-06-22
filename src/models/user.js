@@ -47,8 +47,8 @@ UserModel.updateUser = (userData, callback) => {
     if (connection) {
         const sql = `
         UPDATE users SET 
-        names = ${connection.escape(userData.names)},
-        surnames= ${connection.escape(userData.surnames)}
+        uname = ${connection.escape(userData.uname)},
+        surname= ${connection.escape(userData.surname)}
         email= ${connection.escape(userData.username)}
         passw= ${connection.escape(userData.passw)}
         WHERE id = ${connection.escape(userData.id)}`;
