@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     id INT(10) unsigned NOT NULL AUTO_INCREMENT,
     names VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
     surnames VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
-    username VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
+    email VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
     passw VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
@@ -53,18 +53,18 @@ DESCRIBE crew;
 ALTER USER 'mysql'@'%' IDENTIFIED WITH mysql_native_password BY '1234';
 FLUSH PRIVILEGES;
 
-INSERT INTO users (names, surnames, username, passw)
+INSERT INTO users (names, surnames, email, passw)
 VALUES
-    ("David Arturo", "Mendez Velandia", "darturovela" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Laura Sofia", "Mendez Velandia", "lsofiavela" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Samuel Camilo", "Torres Vesga", "sacamiloto" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Saray", "Fonseca", "saraseca" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Sara Sofia", "Novoa Tellez", "saravoa" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Mickey", "Dysney Marvel", "mickney" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Daniela Maria", "Ruiz Zamora", "damaruiz" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Luisa Fernanda", "Rodriguez", "luiferro" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Andres Felipe", "Ramirez Alfonso", "anframirezal" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Ximena Penelope", "Fonseca Asencio", "ximepenefo" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6");
+    ("David Arturo", "Mendez Velandia", "darturovela@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Laura Sofia", "Mendez Velandia", "lsofiavela@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Samuel Camilo", "Torres Vesga", "sacamiloto@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Saray", "Fonseca", "saraseca@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Sara Sofia", "Novoa Tellez", "saravoa@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("Mickey", "Dysney Marvel", "mickney@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Daniela Maria", "Ruiz Zamora", "damaruiz@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Luisa Fernanda", "Rodriguez", "luiferro@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Andres Felipe", "Ramirez Alfonso@gmail.com", "anframirezal" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Ximena Penelope", "Fonseca Asencio@gmail.com", "ximepenefo" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6");
 
     INSERT INTO passengers (id_user, birthdate, email, phone)
 VALUES

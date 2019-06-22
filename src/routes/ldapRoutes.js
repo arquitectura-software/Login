@@ -11,10 +11,10 @@ module.exports = function(app){
         const body = JSON.stringify(req.body)
         console.log(body)
         const token = jwt.sign({body},'secret_key');
-        console.log(token)
+        //console.log(token)
         var client = ldap.createClient({
-            //url: 'ldap://192.168.99.103:389',
-            url: 'ldap://3.219.172.198:389',
+            url: 'ldap://192.168.99.103:389',
+            //url: 'ldap://3.219.172.198:389',
             version: 3
         });
           

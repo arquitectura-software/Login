@@ -36,6 +36,7 @@ UserModel.insertUser = (userData, callback) => {
                     callback("success", {
                         'insertId': result.insertId
                     })
+                    
                 }
             }
         )
