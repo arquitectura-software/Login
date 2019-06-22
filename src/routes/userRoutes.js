@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const ldap = require('ldapjs');
+
 module.exports = function (app) {
     app.get('/users', (req, res) => {
         User.getusers((err, data) => {
@@ -22,6 +24,7 @@ module.exports = function (app) {
                     success: true,
                     data: data
                 })
+                
             } else {
                 res.status(500).json({
                     success: false,
