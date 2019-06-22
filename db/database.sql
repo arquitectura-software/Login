@@ -63,8 +63,8 @@ VALUES
     ("Mickey", "Dysney Marvel", "mickney@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
     ("Daniela Maria", "Ruiz Zamora", "damaruiz@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
     ("Luisa Fernanda", "Rodriguez", "luiferro@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Andres Felipe", "Ramirez Alfonso@gmail.com", "anframirezal" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
-    ("Ximena Penelope", "Fonseca Asencio@gmail.com", "ximepenefo" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6");
+    ("Andres Felipe", "Ramirez Alfonso", "anframirezal@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6"),
+    ("Ximena Penelope", "Fonseca Asencio", "ximepenefo@gmail.com" ,"$2y$10$KnkxGY6wBWGH8wz/OObLrOqBru34Kfb/Gs8iBhiqBuujG5LcQjZs6");
 
     INSERT INTO passengers (id_user, birthdate, email, phone)
 VALUES
