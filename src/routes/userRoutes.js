@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.post('/users', (req, res) => {
         const userData = {
             id: null,
-            name: req.body.name,
+            uname: req.body.uname,
             surname: req.body.surname,
             email: req.body.email,
             passw: req.body.passw,
@@ -34,7 +34,7 @@ module.exports = function (app) {
     app.put('/users/:id', (req, res) => {
         const userData = {
             id: parseInt(req.params.id),
-            name: req.body.name,
+            uname: req.body.uname,
             surname: req.body.surname,
             email: req.body.email,
             passw: req.body.passw,
