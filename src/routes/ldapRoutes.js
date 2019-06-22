@@ -5,7 +5,8 @@ module.exports = function(app){
 
     app.post("/auth", (req, res) => {
         
-        const username = 'cn='+req.body.username+',ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co';
+        //const username = 'cn='+req.body.username+',ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co';
+        const email = 'cn='+req.body.email+',ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co';
         const password = req.body.password;
         // generar token
         const body = JSON.stringify(req.body)
@@ -23,7 +24,8 @@ module.exports = function(app){
             scope: 'sub',
             attributes: ['objectGUID']
         };
-        client.bind(username, password , function (err) {        
+        //client.bind(username, password , function (err) {        
+        client.bind(email, password , function (err) {        
             if(err){
                 res.status(200).json({
                     success: false,

@@ -10,7 +10,7 @@ module.exports = function (app) {
             id: null,
             names: req.body.names,
             surnames: req.body.surnames,
-            username: req.body.username,
+            email: req.body.email,
             passw: req.body.passw,
             created_at: new Date(),
             updated_at: new Date()
@@ -36,7 +36,7 @@ module.exports = function (app) {
             id: parseInt(req.params.id),
             names: req.body.names,
             surnames: req.body.surnames,
-            username: req.body.username,
+            email: req.body.email,
             passw: req.body.passw,
             created_at: new Date(),
             updated_at: new Date()

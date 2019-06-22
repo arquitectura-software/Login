@@ -36,7 +36,7 @@ UserModel.insertUser = (userData, callback) => {
                     callback("success", {
                         'insertId': result.insertId
                     })
-                    
+
                 }
             }
         )
@@ -49,7 +49,7 @@ UserModel.updateUser = (userData, callback) => {
         UPDATE users SET 
         names = ${connection.escape(userData.names)},
         surnames= ${connection.escape(userData.surnames)}
-        username= ${connection.escape(userData.username)}
+        email= ${connection.escape(userData.username)}
         passw= ${connection.escape(userData.passw)}
         WHERE id = ${connection.escape(userData.id)}`;
 
