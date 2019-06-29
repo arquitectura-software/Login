@@ -18,8 +18,11 @@ module.exports = function(app){
         Passenger.insertpassenger (passengerData,(err,data)=>{
             if (data && data.insertId){
                 res.status(200).json({
-                    success: true,
-                    data: data
+                    id: null,
+                    id_user: passengerDatay.id_user,
+                    birthdate: passengerData.birthdate,
+                    email: passengerData.email,
+                    phone: passengerData.phone
                 })
             }else{
                 res.status(500).json({
@@ -43,7 +46,13 @@ module.exports = function(app){
         console.log(passengerData)
         Passenger.updatepassenger(passengerData,(err,data)=>{
             if (data && data.message){
-                res.json(data)
+                res.json({
+                    id: passengerData.id,
+                    id_user: passengerData.id_user,
+                    birthdate: passengerData.birthdate,
+                    email: passengerData.email,
+                    phone: passengerData.phone
+                })
             }else{
                 res.status(500).json({
                     success: false,
@@ -57,8 +66,7 @@ module.exports = function(app){
         Passenger.deletepassenger(parseInt(req.params.id), (err, data) => {
             if (data && data.message == 'deleted' || data.message == 'not exists') {
                 res.json({
-                    success: true,
-                    data
+                    id: parseInt(req.params.id)
                 })
             }else{
                 res.status(500).json({

@@ -17,8 +17,9 @@ module.exports = function(app){
         crew.insertCrew (crewData,(err,data)=>{
             if (data && data.insertId){
                 res.json({
-                    success: true,
-                    data: data
+                    id: null,
+                    id_user: crewData.id_user,
+                    dependence: crewData.dependence
                 })
             }else{
                 res.status(500).json({
@@ -40,7 +41,11 @@ module.exports = function(app){
         console.log(crewData)
         crew.updateCrew(crewData,(err,data)=>{
             if (data && data.message){
-                res.json(data)
+                res.json({
+                    id: crewData.id,
+                    id_user: crewData.id_user,
+                    dependence: crewData.dependence
+                })
             }else{
                 res.status(500).json({
                     success: false,
@@ -54,8 +59,7 @@ module.exports = function(app){
         crew.deleteCrew(parseInt(req.params.id), (err, data) => {
             if (data && data.message == 'deleted' || data.message == 'not exists') {
                 res.json({
-                    success: true,
-                    data
+                    id: parseInt(req.params.id)
                 })
             }else{
                 res.status(500).json({
