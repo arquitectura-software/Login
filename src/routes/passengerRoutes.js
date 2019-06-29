@@ -19,7 +19,7 @@ module.exports = function(app){
             if (data && data.insertId){
                 res.status(200).json({
                     id: null,
-                    id_user: passengerDatay.id_user,
+                    id_user: passengerData.id_user,
                     birthdate: passengerData.birthdate,
                     email: passengerData.email,
                     phone: passengerData.phone
