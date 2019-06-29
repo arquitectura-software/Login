@@ -5,6 +5,7 @@ module.exports = function(app){
             res.status(200).json(data);
         });
     });
+    
     app.post('/passengers',(req,res)=>{
         const passengerData = {
             id: null,
