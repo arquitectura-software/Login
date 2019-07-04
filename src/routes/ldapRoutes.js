@@ -10,6 +10,20 @@ module.exports = function(app){
         version: 3
     });
 
+    // verificar un token
+    app.post("/veify", (req, res) => {
+        jwt.verify(req.token, 'Secret Password', function(err, user) {
+            if (err) {
+                res.status(401).send({
+                    error: 'Token inválido'
+                })
+            } else {
+                res.send({
+                    message: 'Token válido'
+                })
+            }
+        })
+    });
     // Autenticar un usario
     app.post("/auth", (req, res) => {
         
