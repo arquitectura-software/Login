@@ -12,7 +12,7 @@ module.exports = function(app){
 
     // verificar un token
     app.post("/veify", (req, res) => {
-        jwt.verify(req.token, 'Secret Password', function(err, user) {
+        jwt.verify(req.token, 'secret_key', function(err, user) {
             if (err) {
                 res.status(401).send({
                     error: 'Token inválido'
@@ -34,7 +34,10 @@ module.exports = function(app){
         // generar token
         const body = JSON.stringify(req.body)
         //console.log(body)
-        const token = jwt.sign({body},'secret_key');
+        // el Token dura una hora
+        const token = jwt.sign({body},'secret_key',{
+            expiresIn: 60 * 60 * 1
+        });
         
         var opts = { filter: '(objectclass=user)',scope: 'sub',attributes: ['objectGUID']};
         
