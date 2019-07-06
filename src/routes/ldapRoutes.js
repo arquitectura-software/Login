@@ -11,7 +11,7 @@ module.exports = function(app){
     });
 
     // verificar un token
-    app.post("/veify", (req, res) => {
+    app.post("/validate", (req, res) => {
         jwt.verify(req.token, 'secret_key', function(err, user) {
             if (err) {
                 res.status(401).send({
