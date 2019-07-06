@@ -7,6 +7,13 @@ module.exports = function (app) {
             res.status(200).json(data);
         });
     });
+
+    app.get('/users/:username', (req, res) => {
+        User.getusersByUsername(req.params.username, (err, data) => {
+            res.status(200).json(data);
+        })
+    });
+
     app.post('/users', (req, res) => {
         const userData = {
             id: null,
