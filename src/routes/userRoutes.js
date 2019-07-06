@@ -10,7 +10,11 @@ module.exports = function (app) {
 
     app.get('/users/:username', (req, res) => {
         User.getusersByUsername(req.params.username, (err, data) => {
-            res.status(200).json(data);
+            if (err){
+                console.log(err)
+            }else{
+                res.status(200).json(data);
+            }
         })
     });
 
