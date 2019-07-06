@@ -9,6 +9,7 @@ module.exports = function (app) {
     });
 
     app.get('/users/:username', (req, res) => {
+	console.log("params: ", req.params.username);
         User.getusersByUsername(req.params.username, (err, data) => {
             if (err){
                 console.log(err)

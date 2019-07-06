@@ -1,3 +1,4 @@
+
 const mysql = require('mysql');
 
 connection = mysql.createConnection({
@@ -27,10 +28,10 @@ UserModel.getusers = (callback) => {
 UserModel.getusersByUsername = (username, callback) => {
     if (connection){
         connection.query(
-            `SELECT * FROM users where email = ${connnection.scape(username)}`,
+            'SELECT * FROM users where email = ?', username,
             (err, row) => {
                 if (err){
-                    throw err
+                    console.log(err);
                 } else {
                     callback(null, row);
                 }
