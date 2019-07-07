@@ -14,7 +14,13 @@ module.exports = function (app) {
             if (err){
                 console.log(err)
             }else{
-                res.status(200).json(data);
+                res.status(200).json({
+                    id: data[0].id,
+                    uname: data[0].uname,
+                    surname: data[0].surname,
+                    email: data[0].email,
+                    passw: data[0].passw
+                });
             }
         })
     });
