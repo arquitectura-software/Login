@@ -10,13 +10,15 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
       DATABASE_HOST: login-db
+    ports:
+      - 3308:3306
 
   login-ms:
     build: .
     environment:
       NODE_ENV: production
       DATABASE_HOST: db
-      MYSQL_PORT: 3303
+      MYSQL_PORT: 3308
       MYSQL_DATABASE: Ident
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
