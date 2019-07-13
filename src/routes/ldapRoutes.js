@@ -13,12 +13,12 @@ module.exports = function(app){
     app.post("/validate", (req, res) => {
         jwt.verify(req.token, 'secret_key', function(err, user) {
             if (err) {
-                res.status(401).send({
-                    error: 'Token inválido'
+                res.status(200).json({
+                    message: 'Token Invalido'
                 })
             } else {
-                res.send({
-                    message: 'Token válido'
+                res.status(200).json({
+                    message: 'Token Valido'
                 })
             }
         })
