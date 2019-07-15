@@ -55,8 +55,8 @@ FLUSH PRIVILEGES;
 
 INSERT INTO users (uname, surname, email, passw)
 VALUES
-    ("David Arturo", "Mendez ", "darturovela@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
-    ("Laura Sofia", "Velandia", "lsofiavela@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
+    ("David Arturo", "Mendez", "darturovela@gmail.com" ,"7bb49eecce79a190494fed8f42acb928"),
+    ("Laura Sofia", "Velandia", "lsofiavela@gmail.com" ,"188478bbbbb6aaa4551477b1359dfeeb"),
     ("Samuel Camilo", "Torres", "sacamiloto@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
     ("Saray", "Fonseca", "saraseca@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
     ("Sara Sofia", "Novoa", "saravoa@gmail.com" ,"$2y$10$B0j7MSVBdehRapbxoBicj.7BrLSTp.LpyHcOzMSxWmETHz3Sl4zDm"),
