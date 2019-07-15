@@ -16,7 +16,7 @@ module.exports = function(app){
         jwt.verify(req.token, 'secret_key', function(err, user) {
             if (err) {
                 res.status(401).send({
-                    error: 'Token inválido'
+                    message: 'Token inválido'
                 })
             } else {
                 res.send({
@@ -47,7 +47,8 @@ module.exports = function(app){
             if(err){
                 res.status(200).json({
                     success: false,
-                    data: 'Usuario no autenticado'
+                    data: 'Usuario no autenticado',
+                    token: ""
                 })
                 //client.unbind(function(err) {if(err){console.log(err.message);} else{console.log('client disconnected');}});
             } else {
@@ -76,7 +77,8 @@ module.exports = function(app){
             if(err){
                 res.status(200).json({
                     success: false,
-                    data: 'Admin no autenticado'
+                    data: 'Admin no autenticado',
+                    token: ""
                 })
             } else {
                 res.status(200).json({
