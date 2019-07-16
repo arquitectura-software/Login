@@ -17,7 +17,7 @@ services:
     build: .
     environment:
       NODE_ENV: production
-      DATABASE_HOST: db
+      DATABASE_HOST: login-db
       MYSQL_PORT: 3308
       MYSQL_DATABASE: Ident
       MYSQL_USER: mysql
